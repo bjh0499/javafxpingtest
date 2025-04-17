@@ -1,0 +1,89 @@
+package pingTest.obj;
+
+import java.io.*;
+
+public class Config implements Serializable
+{
+	private static final long serialVersionUID = -4309696587801476611L;
+	private int maxThreads;
+	private int limitTime;
+	private int delay;
+	
+	public Config()
+	{
+		
+	}
+	
+	public Config(int maxThreads, int limitTime, int delay)
+	{
+		this.maxThreads = maxThreads;
+		this.limitTime = limitTime;
+		this.delay = delay;
+	}
+
+	public int getMaxThreads()
+	{
+		return maxThreads;
+	}
+
+	public void setMaxThreads(int maxThreads)
+	{
+		this.maxThreads = maxThreads;
+	}
+
+	public int getLimitTime()
+	{
+		return limitTime;
+	}
+
+	public void setLimitTime(int limitTime)
+	{
+		this.limitTime = limitTime;
+	}
+
+	public int getDelay()
+	{
+		return delay;
+	}
+
+	public void setDelay(int delay)
+	{
+		this.delay = delay;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + delay;
+		result = prime * result + limitTime;
+		result = prime * result + maxThreads;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Config other = (Config) obj;
+		if (delay != other.delay)
+			return false;
+		if (limitTime != other.limitTime)
+			return false;
+		if (maxThreads != other.maxThreads)
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString()
+	{
+		return "Config [maxThreads=" + maxThreads + ", limitTime=" + limitTime + ", delay=" + delay + "]";
+	}
+}
